@@ -88,4 +88,8 @@ public final class Veletlen {
         index++;
         return  asd[0]+asd[1]+index+"@gmail.com";
     }
+
+    public static String velMobil(){
+        return String.format("+36 (30) %s-%s-%s",velEgesz(100,999), velEgesz(11,99), velEgesz(11,99));
+    }
 }
