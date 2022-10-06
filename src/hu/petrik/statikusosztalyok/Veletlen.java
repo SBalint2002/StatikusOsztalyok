@@ -15,6 +15,7 @@ public final class Veletlen {
     private static List<String> vezNevek = feltolt("files/veznev.txt");
     private static List<String> ferfiKerNevek = feltolt("files/ferfikernev.txt");
     private static List<String> noiKerNevek = feltolt("files/ferfikernev.txt");
+    private static int index = 0;
 
     private static List<String> feltolt(String fajlNev) {
         List<String> lista = new ArrayList<>();
@@ -79,5 +80,12 @@ public final class Veletlen {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formazott = datum.format(f);
         return formazott;
+    }
+
+    public static String velEmail(String nev){
+        nev = nev.replaceAll("^\\p{ASCII}]","");
+        String[] asd = nev.toLowerCase().split(" ");
+        index++;
+        return  asd[0]+asd[1]+index+"@gmail.com";
     }
 }
