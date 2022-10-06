@@ -99,5 +99,7 @@ public final class Veletlen {
         return sportagak.get(rnd.nextInt(sportagak.size()));
     }
 
-
+    public static String velSportEgyesulet(){
+        return sportegyesuletek.get(rnd.nextInt(sportegyesuletek.size()));
+    }
 }
