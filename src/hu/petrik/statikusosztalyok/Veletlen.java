@@ -2,10 +2,10 @@ package hu.petrik.statikusosztalyok;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public final class Veletlen {
     private Veletlen() {
@@ -69,5 +69,15 @@ public final class Veletlen {
 
     public static  String velTeljesNev(boolean nem){
         return velVezetekNev() + " " + velKeresztnev(nem);
+    }
+
+    public static String velDatum(int ev1, int ev2) {
+        int min = (int) LocalDate.of(ev1, 1, 1).toEpochDay();
+        int max = (int) LocalDate.of(ev2, 1, 1).toEpochDay();
+        long randomNap = min + rnd.nextInt(max - min);
+        LocalDate datum = LocalDate.ofEpochDay(randomNap);
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formazott = datum.format(f);
+        return formazott;
     }
 }
